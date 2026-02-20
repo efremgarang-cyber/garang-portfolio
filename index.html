@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Efrem Garang · IT Student Portfolio</title>
+  <!-- Font Awesome 6 (free) for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Font: Inter (clean, modern) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #faf9fc;
+      color: #1e1b2b;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* container for consistent width */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* navigation */
+    .navbar {
+      background-color: #ffffffdd;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid #eae6f2;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .logo a {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+      color: #2b2b4b;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3c3a50;
+      transition: color 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #6d5bd0;
+    }
+
+    /* hero section */
+    .hero {
+      padding: 80px 0 40px 0;
+      background: linear-gradient(145deg, #ffffff 0%, #f6f3ff 100%);
+      border-bottom: 1px solid #edeaf5;
+    }
+
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1 1 300px;
+    }
+
+    .hero-content .badge {
+      background-color: #e1d9ff;
+      color: #4c3c9c;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      color: #1a1530;
+      margin-bottom: 10px;
+    }
+
+    .hero-content h1 span {
+      color: #6b5acd;
+      border-bottom: 4px solid #b1a5f0;
+    }
+
+    .hero-content .title {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #4a4563;
+      margin-bottom: 20px;
+    }
+
+    .hero-content .university {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #3d3652;
+    }
+
+    .hero-content .university i {
+      color: #6b5acd;
+      font-size: 1.3rem;
+    }
+
+    .hero-image {
+      flex: 0 0 200px;
+      text-align: center;
+    }
+
+    .avatar-placeholder {
+      background: linear-gradient(135deg, #c7bafc, #9d8bef);
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 25px 30px -12px rgba(87, 64, 179, 0.3);
+      border: 6px solid white;
+    }
+
+    .avatar-placeholder i {
+      font-size: 7rem;
+      color: white;
+      opacity: 0.9;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: 1.5px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: #6b5acd;
+      color: white;
+      box-shadow: 0 6px 14px rgba(107, 90, 205, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: #5847b5;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px rgba(107, 90, 205, 0.35);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border-color: #b6acdf;
+      color: #3b3355;
+    }
+
+    .btn-outline:hover {
+      background-color: #f0ecfe;
+      border-color: #8f7ee0;
+    }
+
+    /* section styling */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #201c36;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #b1a5f0;
+      margin-top: 10px;
+      border-radius: 4px;
+    }
+
+    .section-desc {
+      color: #4b4566;
+      max-width: 700px;
+      margin-bottom: 48px;
+      font-size: 1.15rem;
+    }
+
+    /* about */
+    .about-text {
+      background: white;
+      padding: 32px;
+      border-radius: 24px;
+      box-shadow: 0 10px 25px -8px rgba(0,0,0,0.05);
+      border: 1px solid #efecf5;
+      font-size: 1.1rem;
+      color: #312e44;
+    }
+
+    /* skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 18px;
+    }
+
+    .skill-item {
+      background: white;
+      border: 1px solid #e4def5;
+      padding: 16px 16px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      transition: 0.15s;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+    }
+
+    .skill-item i {
+      font-size: 1.5rem;
+      color: #6b5acd;
+      width: 30px;
+      text-align: center;
+    }
+
+    .skill-item:hover {
+      background-color: #f6f2ff;
+      border-color: #b4a6f0;
+      transform: scale(1.02);
+    }
+
+    /* projects cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 20px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px -12px rgba(72, 58, 128, 0.12);
+      border: 1px solid #eae3f5;
+      transition: 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 35px -12px rgba(88, 64, 169, 0.2);
+    }
+
+    .card-img {
+      background: linear-gradient(145deg, #cbbff0, #a392e8);
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+
+    .card-content {
+      padding: 24px 20px;
+    }
+
+    .card-content h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      color: #221d3a;
+    }
+
+    .card-content p {
+      color: #504b69;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .project-tags span {
+      background: #edeaff;
+      padding: 5px 14px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #4b3c9c;
+      letter-spacing: 0.3px;
+    }
+
+    /* contact & social */
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      background: white;
+      border-radius: 32px;
+      padding: 40px 36px;
+      border: 1px solid #ece8f5;
+      box-shadow: 0 8px 20px -6px rgba(0,0,0,0.02);
+    }
+
+    .contact-info {
+      flex: 1 1 240px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #211d36;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .contact-detail i {
+      font-size: 1.5rem;
+      background: #e4dcfd;
+      padding: 12px;
+      border-radius: 50%;
+      color: #5f4bcb;
+      width: 52px;
+      height: 52px;
+      text-align: center;
+    }
+
+    .contact-detail a {
+      text-decoration: none;
+      color: #35304e;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .contact-detail a:hover {
+      color: #6b5acd;
+    }
+
+    .social-links {
+      margin-top: 30px;
+      display: flex;
+      gap: 18px;
+    }
+
+    .social-links a {
+      background: #ece6ff;
+      color: #4d3aa8;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transition: 0.15s;
+    }
+
+    .social-links a:hover {
+      background: #6b5acd;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .contact-form {
+      flex: 2 1 300px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 16px 20px;
+      border: 1px solid #d9d2ec;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      background: #fcfbff;
+    }
+
+    .contact-form textarea {
+      border-radius: 30px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background: #6b5acd;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      border: 1px solid #6b5acd;
+    }
+
+    .contact-form button:hover {
+      background: #5442b9;
+    }
+
+    /* footer */
+    footer {
+      background: #1f1b30;
+      color: #cac3e8;
+      text-align: center;
+      padding: 32px 0;
+      border-top: 1px solid #332d4a;
+    }
+
+    footer p {
+      font-size: 0.95rem;
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .hero-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-content h1 {
+        font-size: 2.6rem;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .university {
+        justify-content: center;
+      }
+      .section-title:after {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .section-title {
+        text-align: center;
+      }
+      .section-desc {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .contact-flex {
+        padding: 28px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Simple navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo"><a href="#">E.G.</a></div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero section -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="badge"><i class="fas fa-graduation-cap" style="margin-right: 6px;"></i> IT Student</span>
+        <h1>Efrem <span>Garang</span></h1>
+        <div class="title"> aspiring network & software enthusiast</div>
+        <div class="university">
+          <i class="fas fa-map-pin"></i> 
+          <span>Kabarak University · IT program</span>
+        </div>
+        <div class="btn-group">
+          <a href="#projects" class="btn btn-primary"><i class="fas fa-arrow-down" style="margin-right: 8px;"></i>View work</a>
+          <a href="#contact" class="btn btn-outline"><i class="fas fa-comment"></i> Contact me</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="avatar-placeholder">
+          <i class="fas fa-user-astronaut"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- About section -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About me</h2>
+        <div class="about-text">
+          <p>I'm Efrem, an IT student at <strong>Kabarak University</strong> with a deep interest in building reliable systems and exploring how technology can solve everyday problems. I enjoy working on small networking projects, learning new programming languages, and collaborating with peers. Currently I'm focused on web development and basic network administration. I believe in clean code, lifelong learning, and sharing knowledge.</p>
+          <p style="margin-top: 20px;"><i class="fas fa-quote-right" style="color: #9a8ae6; margin-right: 6px;"></i>  “Technology is best when it brings people together.”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills section -->
+    <section id="skills" style="background: #f4f0fe; padding: 80px 0;">
+      <div class="container">
+        <h2 class="section-title">Technical skills</h2>
+        <div class="section-desc">Tools & languages I work with as an IT student</div>
+        <div class="skills-grid">
+          <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+          <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+          <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
+          <div class="skill-item"><i class="fas fa-code"></i> HTML/CSS</div>
+          <div class="skill-item"><i class="fas fa-network-wired"></i> Networking (CCNA basics)</div>
+          <div class="skill-item"><i class="fab fa-linux"></i> Linux / Bash</div>
+          <div class="skill-item"><i class="fas fa-cloud"></i> Cloud fundamentals</div>
+          <div class="skill-item"><i class="fas fa-shield-alt"></i> Cybersecurity basics</div>      
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects section -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-desc">Some of the things I’ve built during my studies</div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="card-img"><i class="fas fa-wifi"></i></div>
+            <div class="card-content">
+              <h3>Campus network design</h3>
+              <p>Simulated a small campus network using Cisco Packet Tracer. Included VLANs, DHCP, and static routing.</p>
+              <div class="project-tags"><span>networking</span><span>cisco</span></div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="card-img"><i class="fas fa-laptop-code"></i></div>
+            <div class="card-content">
+              <h3>Library management CLI</h3>
+              <p>Python-based CLI app to manage book records, using SQLite for data storage. Great for learning CRUD.</p>
+              <div class="project-tags"><span>python</span><span>sqlite</span></div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="card-img"><i class="fas fa-globe"></i></div>
+            <div class="card-content">
+              <h3>Personal portfolio (this one!)</h3>
+              <p>Responsive HTML/CSS site to showcase my journey. Built with flex/grid and a touch of JavaScript-free love.</p>
+              <div class="project-tags"><span>html/css</span><span>responsive</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact" style="background: #fbfaff;">
+      <div class="container">
+        <h2 class="section-title">Let's connect</h2>
+        <div class="section-desc">I’m open to collaborations, IT discussions, or just a friendly hello.</div>
+        <div class="contact-flex">
+          <div class="contact-info">
+            <h3>Reach me directly</h3>
+            <div class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:efrem.garang@example.com">efrem.garang@kabarak.ac.ke</a>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-phone-alt"></i>
+              <a href="tel:+254712345678">+254 712 345 678</a>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Nakuru, Kenya</span>
+            </div>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-x-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form action="#" method="post">
+              <input type="text" placeholder="Your name" required>
+              <input type="email" placeholder="Email address" required>
+              <textarea rows="4" placeholder="Message for Efrem..."></textarea>
+              <button type="submit"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Send message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Efrem Garang — IT Student at Kabarak University. Built with <i class="fas fa-heart" style="color: #c3b3ff;"></i> for the dev community.</p>
+    </div>
+  </footer>
+</body>
+</html>
